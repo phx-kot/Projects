@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator</title>
+</head>
+<body>
+   <h1>Bill Calculator</h1>
+   <h3>Have alot of people but you don't know how much everyone should pay? Use this site!</h3>
+   <form action="">
+    <label for="price">How much was your bill? $</label>
+    <input type="text" id="price" placeholder="Bill Amount">
+    <p></p>
+    <label>How much do you want to tip?</label>
+<select id="tip">
+    <option disabled selected value="0">Choose Tip Amount
+  <option value="1">No tip :(</option>
+  <option value="1.05">5% tip</option>
+  <option value="1.10">10% tip</option>
+  <option value="1.15">15% tip</option>
+  <option value="1.2">20% tip</option>
+  <option value="1.25">25% tip</option>
+  <option value="1.3">30% tip</option>
+</select>
+<p></p>
+<label for="numppl">How many way will you split the bill?:</label>
+<input type="text" id="numppl" placeholder="# of people">
+<p></p>
+<button type="button" id="calculate">Calculate!</button>
+<p></p>
+<h4>Each person pays: <span id="output"></span></h4>
+   </form>
+   <script>
+       function calculate(){
+    var cost = document.getElementById('price').value;
+    var service = document.getElementById('tip').value;
+    var numberof = document.getElementById('numppl').value;
+    if (cost === "" || isNaN(cost) || cost < 1){
+    alert("Please enter a proper price for your bill");
+    return;
+    }
+    if (service === "0"){
+    alert("Enter a tip amount");
+    return;
+    }
+    if (numberof === "" || isNaN(numberof) || numberof < 1){
+        alert("Please enter a proper number of ways for the bill to be split")
+        return;
+     }
+     var finalAmount = ((cost * service)/numberof);
+     finalAmount = Math.round(finalAmount*100)/100;
+     finalAmount = finalAmount.toFixed(2);
+     finalAmount = "$" + finalAmount;
+     document.getElementById("output").innerHTML = finalAmount
+    }
+
+document.getElementById("calculate").onclick = function() {
+    calculate();
+}
+   </script> 
+   
+</body>
+</html>
