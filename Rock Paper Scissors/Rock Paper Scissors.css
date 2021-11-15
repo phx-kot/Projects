@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(31,31,31);
+}
+.overall{
+    margin: auto;
+    background-color:gray;
+    padding: 10px;
+    border-radius: 25px;
+    width: 50%;
+}
+.buttons{
+    margin: auto;
+}
+
